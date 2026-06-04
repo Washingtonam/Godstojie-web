@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <rect width="640" height="480" fill="#f8fafc" />
+  <rect x="120" y="180" width="400" height="180" rx="32" fill="#0f172a" opacity="0.92"/>
+  <rect x="170" y="220" width="80" height="40" fill="#38bdf8" />
+  <rect x="290" y="220" width="80" height="40" fill="#38bdf8" />
+  <rect x="410" y="220" width="80" height="40" fill="#38bdf8" />
+  <path d="M140 180L200 120h240l60 60" fill="none" stroke="#38bdf8" stroke-width="20" stroke-linecap="round"/>
+  <text x="320" y="430" font-family="Inter,system-ui,sans-serif" font-size="42" text-anchor="middle" fill="#334155">Retail</text>
+</svg>

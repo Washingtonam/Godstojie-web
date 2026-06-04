@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480">
+  <rect width="640" height="480" fill="#f8fafc" />
+  <path d="M140 260h120v120h-120zm240 0h120v120h-120z" fill="#0f172a" opacity="0.92"/>
+  <path d="M230 260v-100h80v100m220 0v-100h80v100" stroke="#38bdf8" stroke-width="22" fill="none"/>
+  <text x="320" y="420" font-family="Inter,system-ui,sans-serif" font-size="42" text-anchor="middle" fill="#334155">Duplex</text>
+</svg>

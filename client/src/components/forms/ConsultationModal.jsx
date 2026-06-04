@@ -24,6 +24,8 @@ export default function ConsultationModal({ project, isOpen, onClose, onSubmitte
     `Hello Godstojie Construction, I have submitted a consultation request for ${project?.title || 'your services'}.`
   )}`;
 
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!clientName || !clientPhone || !preferredTime) {
@@ -35,7 +37,7 @@ export default function ConsultationModal({ project, isOpen, onClose, onSubmitte
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/leads', {
+      const response = await fetch(`${API_BASE_URL}/api/leads`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

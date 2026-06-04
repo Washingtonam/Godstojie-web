@@ -7,7 +7,7 @@ const sampleProjects = [
     title: '4 Bedroom Bungalow',
     category: 'Residential',
     description: 'Premium bungalow design with modern finishes, optimized for family living.',
-    imageUrl: '/images/bungalow.jpg',
+    imageUrl: '/images/bungalow.svg',
     startingPrice: 18500000,
   },
   {
@@ -15,7 +15,7 @@ const sampleProjects = [
     title: 'Luxury Duplex',
     category: 'Residential',
     description: 'Luxury duplex with a strong emphasis on practical spaces and elegant detailing.',
-    imageUrl: '/images/duplex.jpg',
+    imageUrl: '/images/duplex.svg',
     startingPrice: 27500000,
   },
   {
@@ -23,7 +23,7 @@ const sampleProjects = [
     title: 'Commercial Retail Fitout',
     category: 'Commercial',
     description: 'End-to-end retail fitout for premium brand experiences and operational efficiency.',
-    imageUrl: '/images/retail.jpg',
+    imageUrl: '/images/retail.svg',
     startingPrice: 12000000,
   },
 ];

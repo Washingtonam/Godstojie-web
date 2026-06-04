@@ -42,3 +42,44 @@ exports.handleConsultationRequest = async (req, res) => {
     res.status(500).json({ message: 'Unable to capture lead. Please try again later.' });
   }
 };
+
+exports.getLeads = async (req, res) => {
+  try {
+    const query = {};
+    if (req.query.status) {
+      query.status = req.query.status;
+    }
+
+    const leads = await Lead.find(query).sort({ createdAt: -1 });
+    res.status(200).json({ leads });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Unable to retrieve leads.' });
+  }
+};
+
+exports.updateLead = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { status, notes } = req.body;
+
+    if (!status && notes === undefined) {
+      return res.status(400).json({ message: 'Nothing to update.' });
+    }
+
+    const updatePayload = {};
+    if (status) updatePayload.status = status;
+    if (notes !== undefined) updatePayload.notes = notes;
+
+    const lead = await Lead.findByIdAndUpdate(id, updatePayload, { new: true });
+
+    if (!lead) {
+      return res.status(404).json({ message: 'Lead not found.' });
+    }
+
+    res.status(200).json({ message: 'Lead updated successfully.', lead });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Unable to update lead.' });
+  }
+};
