@@ -25,8 +25,6 @@ export default function ConsultationModal({ project, isOpen, onClose, onSubmitte
     `Hello Godstojie Construction, I have submitted a consultation request for ${project?.title || 'your services'}.`
   )}`;
 
-import { API_BASE_URL } from '../../lib/api';
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!clientName || !clientPhone || !preferredTime) {
