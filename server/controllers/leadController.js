@@ -1,4 +1,5 @@
 const Lead = require('../models/Lead');
+const mongoose = require('mongoose');
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
@@ -19,11 +20,15 @@ exports.handleConsultationRequest = async (req, res) => {
       return res.status(400).json({ message: 'Client name and phone are required.' });
     }
 
+    if (projectId && !mongoose.Types.ObjectId.isValid(projectId)) {
+      return res.status(400).json({ message: 'Invalid project ID format.' });
+    }
+
     const lead = await Lead.create({
       clientName,
       clientPhone,
       preferredTime,
-      projectId,
+      projectId: projectId && mongoose.Types.ObjectId.isValid(projectId) ? projectId : undefined,
       projectName,
     });
 

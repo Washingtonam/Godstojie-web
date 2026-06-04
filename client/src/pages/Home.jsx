@@ -3,7 +3,7 @@ import ProjectGrid from '../components/projects/ProjectGrid';
 
 const sampleProjects = [
   {
-    _id: '1',
+    _id: '650fa8a4a7f9f3b878a12c01',
     title: '4 Bedroom Bungalow',
     category: 'Residential',
     description: 'Premium bungalow design with modern finishes, optimized for family living.',
@@ -11,7 +11,7 @@ const sampleProjects = [
     startingPrice: 18500000,
   },
   {
-    _id: '2',
+    _id: '650fa8a4a7f9f3b878a12c02',
     title: 'Luxury Duplex',
     category: 'Residential',
     description: 'Luxury duplex with a strong emphasis on practical spaces and elegant detailing.',
@@ -19,7 +19,7 @@ const sampleProjects = [
     startingPrice: 27500000,
   },
   {
-    _id: '3',
+    _id: '650fa8a4a7f9f3b878a12c03',
     title: 'Commercial Retail Fitout',
     category: 'Commercial',
     description: 'End-to-end retail fitout for premium brand experiences and operational efficiency.',

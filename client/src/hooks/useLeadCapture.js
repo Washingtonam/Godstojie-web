@@ -10,7 +10,7 @@ export function useLeadCapture() {
     setError(null);
 
     try {
-      const response = await fetch('/api/leads', {
+      const response = await fetch(`${API_BASE_URL}/api/leads`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(leadData),
