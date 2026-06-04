@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../../lib/api';
 
 export default function ConsultationModal({ project, isOpen, onClose, onSubmitted }) {
   const [clientName, setClientName] = useState('');
@@ -24,7 +25,7 @@ export default function ConsultationModal({ project, isOpen, onClose, onSubmitte
     `Hello Godstojie Construction, I have submitted a consultation request for ${project?.title || 'your services'}.`
   )}`;
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
+import { API_BASE_URL } from '../../lib/api';
 
   const handleSubmit = async (event) => {
     event.preventDefault();
