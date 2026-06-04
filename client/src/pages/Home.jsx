@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import ProjectGrid from '../components/projects/ProjectGrid';
+import ConsultationModal from '../components/forms/ConsultationModal';
 
 const sampleProjects = [
   {
@@ -30,10 +31,22 @@ const sampleProjects = [
 
 export default function Home() {
   const [projects, setProjects] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   useEffect(() => {
     setProjects(sampleProjects);
   }, []);
+
+  const handleOpenModal = (project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedProject(null);
+  };
 
   return (
     <main className="min-h-screen bg-slate-50 px-4 py-10 sm:px-6 lg:px-8">
@@ -59,7 +72,13 @@ export default function Home() {
             </p>
           </div>
 
-          <ProjectGrid projects={projects} />
+          <ProjectGrid projects={projects} onOpenModal={handleOpenModal} />
+
+          <ConsultationModal
+            project={selectedProject}
+            isOpen={isModalOpen}
+            onClose={handleCloseModal}
+          />
 
           <div className="mt-14 rounded-4xl bg-slate-950 px-8 py-10 text-white shadow-2xl sm:px-10">
             <div className="grid gap-6 md:grid-cols-3">

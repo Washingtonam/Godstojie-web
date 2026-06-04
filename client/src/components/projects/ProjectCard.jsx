@@ -1,9 +1,4 @@
-import { useState } from 'react';
-import ConsultationModal from '../forms/ConsultationModal';
-
-export default function ProjectCard({ project }) {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
+export default function ProjectCard({ project, onOpenModal }) {
   return (
     <div className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
       <img src={project.imageUrl} alt={project.title} className="h-56 w-full object-cover" />
@@ -17,18 +12,13 @@ export default function ProjectCard({ project }) {
             <p className="mt-1 text-lg font-semibold">₦{project.startingPrice.toLocaleString()}</p>
           </div>
           <button
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => onOpenModal(project)}
             className="rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
           >
             Request Professional Quote
           </button>
         </div>
       </div>
-      <ConsultationModal
-        project={project}
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-      />
     </div>
   );
 }
