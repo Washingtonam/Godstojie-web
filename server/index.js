@@ -9,9 +9,16 @@ app.use(cors());
 app.use(express.json());
 app.use('/api', apiRoutes);
 
-const mongoUri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/godstojie';
+const mongoUri = process.env.MONGO_URI;
 
-mongoose.connect(mongoUri, {
+if (!mongoUri && process.env.NODE_ENV === 'production') {
+  console.error('Missing MONGO_URI environment variable. Set your MongoDB Atlas URI in Render.');
+  process.exit(1);
+}
+
+const connectionString = mongoUri || 'mongodb://127.0.0.1:27017/godstojie';
+
+mongoose.connect(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() => {
